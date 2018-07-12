@@ -1,0 +1,1150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cognex.VisionPro3D.Display.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:Cognex.VisionPro3D.Cog3DDisplayV2">
+            <summary>
+            A WPF version of the Cog3DDisplayV2 VisionPro user control
+            </summary>
+            <summary>
+            Cog3DDisplayV2
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.ICog3DDisplayV2">
+            <summary>
+            Public interface for the Cog3DDisplayV2 user controls
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.SaveAsImage(System.String)">
+            <summary>
+            Save the content of the display into an image file with the current resolution of the display. 
+            If the filename attribute is not set, the display will show a Save File Dialog to the user 
+            so she can specify the name and location of the file to save the image to.
+            </summary>
+            <param name="fileName">The name of the file to save the content of the display to.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.SaveAsImage(System.Int32,System.Int32,System.String)">
+            <summary>
+            Save the content of the scene into an image file with the given width and height as the resolution of the resulting image. 
+            If the filename attribute is not set, the display will show a Save File Dialog to the user 
+            so she can specify the name and location of the file to save the image to.
+            </summary>
+            <exception cref="T:System.ArgumentException">
+            Throws an ArgumentException if the width is 0 or negative.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an ArgumentException if the height is 0 or negative.
+            </exception>
+            <param name="width">The width of the resulting image file</param>
+            <param name="height">The height of the resulting image file</param>
+            <param name="fileName">The name of the file to save the content of the display to.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.ResetView">
+            <summary>
+            Reset the camera's location to its default: 0,0,Z, looking at 0,0,0.
+            Zooms to an extent to fit the graphics into the view.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.FitView">
+            <summary>
+            Zooms in and out to fit the content of the world into the view
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)">
+            <summary>
+            Change the camera's position and look direction in the 3-D space.
+            </summary>
+            <param name="position">New position of the camera.</param>
+            <param name="target">New target the camera is looking at.</param>
+            <param name="upDirection">New up direction of the camera.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <summary>
+            Adds a Cog3DVisionDataGraphicBase item to the display to the given group. 
+            Throws an exception if the item is null.
+            Throws an exception if the item has already been added to the display.
+            Throws an exception if the groupName is null or empty string.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Throws an exception if the item is null
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the item has already been added to the display.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the groupName is null or empty string.
+            </exception>
+            <param name="item">the Cog3DVisionDataGraphicBase item to add to the display</param>
+            <param name="groupName">The name of the logical group to add the item to. The groupName is case insensitive.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphic(System.Int32)">
+            <summary>
+            Returns a Cog3DVisionDataGraphicBase item at the given index
+            </summary>
+            <param name="index">the zero based index of the Cog3DVisionDataGraphicBase item to return</param>
+            <returns>The Cog3DVisionDataGraphicBase item at the given index</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphics">
+            <summary>
+            Returns all the Cog3DVisionDataGraphicBase graphic items added to the display
+            </summary>
+            <returns>Returns all the Cog3DVisionDataGraphicBase graphic items added to the display</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetLostAndFoundVisionDataGraphics">
+            <summary>
+            Returns all the Cog3DVisionDataGraphicBase graphic items that has been added to the display
+            but its 3D coordinate space does not hold an entry specified by DisplaySpaceName3D and therefore cannot be rendered
+            </summary>
+            <returns>Returns all the Cog3DVisionDataGraphicBase graphic items that has been added to the display
+            but its 3D coordinate space does not hold an entry specified by DisplaySpaceName3D and therefore cannot be rendered
+            </returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphics(System.String)">
+            <summary>
+            Returns all the Cog3DVisionDataGraphicBase from the given group
+            </summary>
+            <param name="groupName">The name of the group to return the Cog3DVisionDataGraphicBase from. The groupName is case insensitive.</param>
+            <returns>Returns all the Cog3DVisionDataGraphicBase from the given group</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)">
+            <summary>
+            Removes the given Cog3DVisionDataGraphicBase from the display with all of its associated geometry graphics.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Throws an exception if the visionDataGraphic is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the visionDataGraphic is not on the display.
+            </exception>
+            <param name="visionDataGraphic"></param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.RemoveVisionDataGraphicByIndex(System.Int32)">
+            <summary>
+            Removes the given Cog3DVisionDataGraphicBase from the display at the given index. 
+            The associated geometry graphics will be removed too.
+            </summary>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the index is outside of the graphic collection's boundaries.
+            </exception>
+            <param name="index">The zero based index of the item to remove</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <summary>
+            Adds the given geometryGraphic to the display. It will be associated with the given 
+            VisionDataGraphic and the VisionDataGraphic’s 3D coordinate space tree will be used 
+            to resolve the geometry graphic’s SelectedSpaceName3D to the display’s DisplaySpaceName3D.
+            Throws an exception if the geometryGraphic is null.
+            Throws an exception if the geometryGraphic has already been added to the display.
+            Throws an exception if the visionDataGraphic is null.
+            Throws an exception if the visionDataGraphic has NOT yet been added to the display.
+            Throws an exception if the groupName is null or empty string.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Throws an exception if the geometryGraphic is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the geometryGraphic has already been added to the display.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Throws an exception if the visionDataGraphic is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the visionDataGraphic has not yet been added to the display.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the groupName is null or empty string.
+            </exception>
+            <param name="geometryGraphic">The geometry graphic to add to the display</param>
+            <param name="visionDataGraphic">The vision data graphic to associate the geometry graphic with</param>
+            <param name="groupName">The name of the logical group to add the geometry graphic to. The groupName is case insensitive.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphic(System.Int32)">
+            <summary>
+            Returns a Cog3DGeometryGraphicBase item at the given index
+            </summary>
+            <param name="index">the zero based index of the Cog3DGeometryGraphicBase item to return</param>
+            <returns>The Cog3DGeometryGraphicBase item at the given index</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphics">
+            <summary>
+            Returns all the Cog3DGeometryGraphicBase graphic items added to the display
+            </summary>
+            <returns>Returns all the Cog3DGeometryGraphicBase graphic items added to the display</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetLostAndFoundGeometryGraphics">
+            <summary>
+            Returns all the Cog3DGeometryGraphicBase graphic items that has been added to the display
+            but its SelectedSpaceName3D could not be resolved because either:
+            - the SelectedSpaceName3D of the geometry graphic can not be found in the associated VisionData's 3D coordinate space tree
+            - or there is something wrong with the associated VisionData's 3D coordinate space tree and therefore it could not be rendered
+            </summary>
+            <returns>Returns all the Cog3DGeometryGraphicBase graphic items that has been added to the display but its SelectedSpaceName3D could not be resolved</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphics(System.String)">
+            <summary>
+            Returns all the Cog3DGeometryGraphicBase from the given group
+            </summary>
+            <param name="groupName">The name of the group to return the Cog3DGeometryGraphicBase from. The groupName is case insensitive.</param>
+            <returns>Returns all the Cog3DGeometryGraphicBase from the given group</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DGeometryGraphicBase)">
+            <summary>
+            Removes the given Cog3DGeometryGraphicBase from the display
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Throws an exception if the geometryGraphic is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the geometryGraphic is not on the display.
+            </exception>
+            <param name="geometryGraphic">The Cog3DGeometryGraphicBase to remove from the display</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.RemoveGeometryGraphicByIndex(System.Int32)">
+            <summary>
+            Removes the given Cog3DGeometryGraphicBase from the display at the given index
+            </summary>
+            <exception cref="T:System.ArgumentException">
+            Throws an exception if the index is outside of the graphic collection's boundaries.
+            </exception>
+            <param name="index">The zero based index of the item to remove</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(System.String)">
+            <summary>
+            Removes all the Cog3DVisionDataGraphicBase and Cog3DGeometryGraphicBase graphics
+            from the display from the specified group.
+            NOTE: when it removes a Cog3DVisionDataGraphicBase all of its associated geometry graphics
+            will be removed regardless of which group they are in.
+            </summary>
+            <param name="groupName">The name of the logical group to add the item to. The groupName is case insensitive.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.ICog3DDisplayV2.Clear">
+            <summary>
+            Cleras the contents of the display
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.BackColor">
+            <summary>
+            The background color of the display
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.EnableDrawing">
+            <summary>
+            Gets or sets whether draqing the content of the display is enabled or not. 
+            When not enabled, no actual refresh of the display will happen inserting/updating/removing items
+            If adding/updateing/removing multiple items it is advised to disable drawing so no redraw will happen after each individual operation
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.DisplaySpaceName3D">
+            <summary>
+            Gets or sets the name of the coordinate space that needs to be used forrendering 
+            RangeImage, PointCloud and any other 3D graphics that is being added to the display
+            NOTE: this is the name of the common shared physical space
+            </summary>
+            <exception cref="T:Cognex.VisionPro.Exceptions.CogSpaceTreeInvalidNameSyntaxException">
+            Throws an CogSpaceTreeInvalidNameSyntaxException if the DisplaySpaceName3D doesn't have a valid space name syntax.
+            </exception>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinatesTracked">
+            <summary>
+            Gets or sets whether the mouse’s coordinates are tracked in the display.
+            It has to be set to true to figure out the 3D coordinates under the mouse's position.
+            If set to false, mouse coordinates are not tracked and always reported as null.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinates">
+            <summary>
+            Returns the 3D coordinates of the mouse pointer. If there is no valid 3D coordinates of the mouse it returns null. 
+            The MouseCoordinatesTracked property has to be set to true otherwise mouse coordinates are not tracked at all and will always return null.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinatesChanged">
+            <summary>
+            Event to signal the change of MouseCoordinates
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraPosition">
+            <summary>
+            Returns the camera's position in the world space
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraTarget">
+            <summary>
+            Returns the camera's target position (look at) in the world space
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraUpDirection">
+            <summary>
+            Returns the camera's up direction in the world space
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.VisionDataGraphicsCount">
+            <summary>
+            Return the number of Cog3DVisionDataGraphicBase items in the display
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.GeometryGraphicsCount">
+            <summary>
+            Return the number of Cog3DGeometryGraphicBase items in the display
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.DisplayMode">
+            <summary>
+            Gets or sets the current rendering mode of the display
+            NOTE: Setting the mode to DisplayModes.Vertices may lead to runtime error on Intel HD3000 with the latest Intel grpahics driver (VC5 hardware)
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.AutoResolution">
+            <summary>
+            Gets or sets whether the display should automatically figure out the
+            subsampling rate for the Cog3DVisionDataGraphic objects
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.ICog3DDisplayV2.Resolution">
+            <summary>
+            Gets or sets the subsampling rate in DisplaySpaceName3D units. To make the display use this given value set AutoResolution to false
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.#ctor">
+            <summary>
+            Default constructor for the WPF 3D display control
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Dispose">
+            <summary>
+            Disposes the WPF 3D display control. Needs to be called explicitely when the control needs to be disposed.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.ResetView">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.ResetView"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.FitView">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.FitView"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Clear">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Clear"/>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2.EnableDrawingProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2.EnableDrawing"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2.DisplaySpaceName3DProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2.DisplaySpaceName3D"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.SaveAsImage(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.SaveAsImage(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.SaveAsImage(System.Int32,System.Int32,System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.SaveAsImage(System.Int32,System.Int32,System.String)"/>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2.AutoResolutionProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2.AutoResolution"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2.ResolutionProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2.Resolution"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)"/>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2.DisplayModeProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2.DisplayMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2.MouseCoordinatesTrackedProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2.MouseCoordinatesTracked"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetVisionDataGraphic(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphic(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetVisionDataGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetLostAndFoundVisionDataGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetLostAndFoundVisionDataGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetVisionDataGraphics(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphics(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.RemoveVisionDataGraphicByIndex(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.RemoveVisionDataGraphicByIndex(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetGeometryGraphic(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphic(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetGeometryGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetLostAndFoundGeometryGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetLostAndFoundGeometryGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.GetGeometryGraphics(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphics(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DGeometryGraphicBase)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DGeometryGraphicBase)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.RemoveGeometryGraphicByIndex(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.RemoveGeometryGraphicByIndex(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.Remove(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplayV2.MouseCoordinatesChanged">
+            <inheritdoc cref="E:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinatesChanged"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.BackColor">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.BackColor"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.EnableDrawing">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.EnableDrawing"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.DisplaySpaceName3D">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.DisplaySpaceName3D"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.MouseCoordinates">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinates"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.AutoResolution">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.AutoResolution"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.Resolution">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.Resolution"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.CameraPosition">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraPosition"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.CameraTarget">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraTarget"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.CameraUpDirection">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraUpDirection"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.DisplayMode">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.DisplayMode"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.MouseCoordinatesTracked">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinatesTracked"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.VisionDataGraphicsCount">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.VisionDataGraphicsCount"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2.GeometryGraphicsCount">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.GeometryGraphicsCount"/>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar">
+            <summary>
+            Cog3DDisplayV2StatusBar provides statusbar features and functionalities for ICog3DDisplayV2 display controls.
+            </summary>
+            <summary>
+            Cog3DDisplayV2StatusBar
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.#ctor">
+            <summary>
+            Creates an instance of the 3D display's status bar control
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.MouseCoordinatesProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.MouseCoordinates"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.OnMouseCoordinatesChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the mouse position changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.MouseCoordinatesSpaceNameProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.MouseCoordinatesSpaceName"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.OnMouseCoordinatesSpaceNameChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the mouse position changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.Destroy">
+            <summary>
+            Use this function to explicitly clean up the control.
+            Call this only from the thread the control was created on, if the method is called from any other thread it does nothing.
+            You may call this function multiple times without any ill effects but only the first call - from the appropriate thread - has effect.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.ApplicationThreadExit(System.Object,System.EventArgs)">
+            <summary>
+            Handles the event which occurs when the control hosted in Windows Forms and the application is closing
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.DispatcherShutdownStarted(System.Object,System.EventArgs)">
+            <summary>
+            Handles the event which occurs when the control hosted in WPF and the application closing
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.CogWPFUserControlUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handles the event which occurs when the control closed, but the application still running
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.CleanUp">
+            <summary>
+            Cleans up the control.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.OnParentWindowClosed">
+            <summary>
+            Derived classes should override this method to handle the parent closed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.Display">
+            <summary>
+            Gets or sets the <see cref="T:Cognex.VisionPro3D.ICog3DDisplayV2"/> control for this status bar. 
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.MouseCoordinates">
+            <summary>
+            Gets the actual mouse position in the 3-D space.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2StatusBar.MouseCoordinatesSpaceName">
+            <summary>
+            Gets the actual mouse position in the 3-D space.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel">
+            <summary>
+            3D model class. Internal use only.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel._resolution">
+            <summary>
+            Gets or sets the rendering resolution. If AutoResolution is false,
+            this value will determine the rendering resolution.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel._brush">
+            <summary>
+            Gets or sets the color of the model.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel._renderMissingPixels">
+            <summary>
+            Wheter true or false, the missing pixels will be rendered
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel._isModelLeftHanded">
+            <summary>
+            Tells whether the currently displayed model is left-handed or not.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel.GetContent">
+            <summary>
+            Returns the content of the model
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.Cog3DModel.Update">
+            <summary>
+            Update (re-render) model
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DDisplayV2WF">
+            <summary>
+            The Windows Forms version of the Cog3DDisplayV2 VisionPro user control
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplayV2WF.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.#ctor">
+            <summary>
+            Default contsructor for the WinForms version of the 3D display control
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.ResetView">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.ResetView"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.FitView">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.FitView"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Clear">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Clear"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.SaveAsImage(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.SaveAsImage(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.SaveAsImage(System.Int32,System.Int32,System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.SaveAsImage(System.Int32,System.Int32,System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Add(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetVisionDataGraphic(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphic(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetVisionDataGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetLostAndFoundVisionDataGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetLostAndFoundVisionDataGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetVisionDataGraphics(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetVisionDataGraphics(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Remove(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.RemoveVisionDataGraphicByIndex(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.RemoveVisionDataGraphicByIndex(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Add(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Add(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetGeometryGraphic(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphic(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetGeometryGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetLostAndFoundGeometryGraphics">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetLostAndFoundGeometryGraphics"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.GetGeometryGraphics(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.GetGeometryGraphics(System.String)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Remove(Cognex.VisionPro3D.Cog3DGeometryGraphicBase)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(Cognex.VisionPro3D.Cog3DGeometryGraphicBase)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.RemoveGeometryGraphicByIndex(System.Int32)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.RemoveGeometryGraphicByIndex(System.Int32)"/>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2WF.Remove(System.String)">
+            <inheritdoc cref="M:Cognex.VisionPro3D.ICog3DDisplayV2.Remove(System.String)"/>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplayV2WF.MouseCoordinatesChanged">
+            <inheritdoc cref="E:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinatesChanged"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.BackColor">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.BackColor"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.EnableDrawing">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.EnableDrawing"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.DisplaySpaceName3D">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.DisplaySpaceName3D"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.MouseCoordinatesTracked">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinatesTracked"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.MouseCoordinates">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.MouseCoordinates"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.AutoResolution">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.AutoResolution"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.Resolution">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.Resolution"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.CameraPosition">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraPosition"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.CameraTarget">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraTarget"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.CameraUpDirection">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.CameraUpDirection"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.DisplayMode">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.DisplayMode"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.VisionDataGraphicsCount">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.VisionDataGraphicsCount"/>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2WF.GeometryGraphicsCount">
+            <inheritdoc cref="P:Cognex.VisionPro3D.ICog3DDisplayV2.GeometryGraphicsCount"/>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Display.Controls.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Display.Controls.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Display.Controls.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.ResetView">
+            <summary>
+            Resets the view to the default initial camera position and view direction. 
+            Looking at the scene from the top along the Z axis in a way to fit the whole scene
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.SaveAsImage(System.String)">
+            <summary>
+            Renders the content of the display to a PNG with the actual resolution.
+            </summary>
+            <param name="fileName">The path to the file. If null or emptry string, a SaveFileDialog window will be shown to the user to set the filename.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.SaveAsImage(System.Int32,System.Int32,System.String)">
+            <summary>
+            Renders the contents of the display to a PNG with the given resolution.
+            </summary>
+            <param name="width">The given width.</param>
+            <param name="height">The given height.</param>
+            <param name="fileName">The path to the file. If null or emptry string, a SaveFileDialog window will be shown to the user to set the filename.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.InitializeDisplayImpl(Cognex.VisionPro3D.Cog3DDisplayV2Impl.DisplayImplType,System.Windows.Forms.Control,System.Windows.Controls.Grid)">
+            <summary>
+            Instantiates the class to be used for the current display based on the impl value
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.InitializeDisplayProperties">
+            <summary>
+            Sets the initial display properties, like background color, etc
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.SetDisplayImplBackgroundColor">
+            <summary>
+            Sets the background color of the display under the hood
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayV2Impl.OnDisplaySpaceName3DChanged">
+            <summary>
+            Called when the DisplaySpaceName3D changed
+            All the existing visiondata needs to be redrawn in the new space
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayV2Impl.EnableDrawing">
+            <summary>
+            Gets or sets whether updating the screen is enabled or not
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DDisplayHost">
+            <summary>
+            This class is a host for the WPF implementation of the <see cref="T:Cognex.VisionPro3D.Cog3DDisplay"/>
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayHost.#ctor">
+            <summary>
+            Creates a new Instance of the <see cref="T:Cognex.VisionPro3D.Cog3DDisplayHost"/>.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplayHost.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplayHost.HostedDisplay">
+            <summary>
+            Gets the underlying <see cref="T:Cognex.VisionPro3D.Cog3DDisplay"/> WPF control.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DDisplay">
+            <summary>
+            A 3D Display Control for rendering 3D Range Images
+            </summary>
+            <summary>
+            Cog3DDisplay
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.#ctor">
+            <summary>
+            Creates an instance of the <see cref="T:Cognex.VisionPro3D.Cog3DDisplay"/> class
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.MouseCoordinatesVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.MouseCoordinatesVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.StatusBarVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.StatusBarVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.BrushProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.Brush"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.BrushChangedEvent">
+            <summary>
+            The brush changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnBrushChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the brush changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnBrushChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Windows.Media.Brush})">
+            <summary>
+            Raises the brush changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.ImageProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.Image"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.ImageChangedEvent">
+            <summary>
+            The image changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnImageChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the image changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnImageChanged(System.Windows.RoutedPropertyChangedEventArgs{Cognex.VisionPro.ICogImage})">
+            <summary>
+            Raises the image changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.MouseModeProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.MouseMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.MouseModeChangedEvent">
+            <summary>
+            The mouse mode changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnMouseModeChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the mouse mode changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnMouseModeChanged(System.Windows.RoutedPropertyChangedEventArgs{Cognex.VisionPro3D.Cog3DDisplayMouseModeConstants})">
+            <summary>
+            Raises the moude mode changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.MousePositionProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.MousePosition"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.MousePositionChangedEvent">
+            <summary>
+            The mouse position changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnMousePositionChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the mouse position changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnMousePositionChanged(System.Windows.RoutedPropertyChangedEventArgs{Cognex.VisionPro3D.Cog3DVect3})">
+            <summary>
+            Raises the mouse position changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.RenderNonVisiblePixelsProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.RenderNonVisiblePixels"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.RenderNonVisiblePixelsChangedEvent">
+            <summary>
+            The render non visible pixels changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnRenderNonVisiblePixelsChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the render non visible pixels changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnRenderNonVisiblePixelsChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Boolean})">
+            <summary>
+            Raises the render non visible pixels changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.RotateAroundMouseDownProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.RotateAroundMouseDown"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.RotateAroundMouseDownChangedEvent">
+            <summary>
+            The rotate around mouse down changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnRotateAroundMouseDownChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the rotate around mouse down changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnRotateAroundMouseDownChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Boolean})">
+            <summary>
+            Raises the rotate around mouse down changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.SamplingRateProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.SamplingRate"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.SamplingRateChangedEvent">
+            <summary>
+            The sampling rate changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnSamplingRateChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the sampling rate changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnSamplingRateChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Int32})">
+            <summary>
+            Raises the sampling rate changed event.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.ZoomAroundMouseDownProperty">
+            <summary>
+            Identifies the <see cref="P:Cognex.VisionPro3D.Cog3DDisplay.ZoomAroundMouseDown"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DDisplay.ZoomAroundMouseDownChangedEvent">
+            <summary>
+            The zoom around mouse down changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnZoomAroundMouseDownChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Raises the zoom around mouse down changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.OnZoomAroundMouseDownChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Boolean})">
+            <summary>
+            Raises the zoom around mouse down changed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.Fit(System.Boolean)">
+            <summary>
+            Zooms to the extents of the sceen.
+            </summary>
+            <param name="resetView">A value indicating whether to reset the view to the initial state.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.RenderScene">
+            <summary>
+            Renders the content of the display to a bitmap with the actual resolution.
+            </summary>
+            <returns>The rendered content.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.RenderScene(System.Int32,System.Int32)">
+            <summary>
+            Renders the content of the display to a bitmap with the given resolution.
+            </summary>
+            <param name="width">The given width.</param>
+            <param name="height">The given height.</param>
+            <returns>The rendered content.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)">
+            <summary>
+            Change the viewport's position and direction in the 3-D space.
+            </summary>
+            <param name="newPosition">New position of the viewport.</param>
+            <param name="newDirection">New looking direction of the viewport.</param>
+            <param name="upDirection">New up direction of the viewport.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DDisplay.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.MouseCoordinatesVisible">
+            <summary>
+            Gets or sets whether the coordinates of the object under the mouse cursor are visible on the Display
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.StatusBarVisible">
+            <summary>
+            Gets or sets whether the coordinates of the object under the mouse cursor are visible on the Statusbar
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.Brush">
+            <summary>
+            Gets or sets the brush to be applied as a material to the 3-D model. 
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.BrushChanged">
+            <summary>
+            Occurs when the brush changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.Image">
+            <summary>
+            Gets or sets the image currently in the display.
+            </summary> 
+            <exception cref="T:Cognex.VisionPro3D.Cog3DImageRenderException">Thrown when the image cannot be rendered.</exception>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.ImageChanged">
+            <summary>
+            Occurs when the image changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.MouseMode">
+            <summary>
+            Gets or sets the behavior of the display control in response to mouse input.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.MouseModeChanged">
+            <summary>
+            Occurs when the mouse mode changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.MousePosition">
+            <summary>
+            Gets the actual mouse position in the 3-D space.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.MousePositionChanged">
+            <summary>
+            Occurs when the mouse position changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.RenderNonVisiblePixels">
+            <summary>
+            Gets or sets a value indicating whether to render not visible pixels.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.RenderNonVisiblePixelsChanged">
+            <summary>
+            Occurs when the render non visible pixels property changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.RotateAroundMouseDown">
+            <summary>
+            Gets or sets a value indicating whether to rotate around mouse down point.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.RotateAroundMouseDownChanged">
+            <summary>
+            Occurs when the rotate around mouse down property changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.SamplingRate">
+            <summary>
+            Gets or sets the sampling rate of the model. The higher this value is, the lower the rendering quality will be.
+            For auto-sampling, use 0.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown when the given value is smaller than 0.
+            </exception>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.SamplingRateChanged">
+            <summary>
+            Occurs when the sampling rate changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.ZoomAroundMouseDown">
+            <summary>
+            Gets or sets a value indicating whether to zoom around mouse down point.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DDisplay.ZoomAroundMouseDownChanged">
+            <summary>
+            Occurs when the zoom around mouse down property changed.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.CamraPosition">
+            <summary>
+            Returns the current camera position
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.LookDirection">
+            <summary>
+            Returns the camera's look direction 
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DDisplay.UpDirection">
+            <summary>
+            Returns the vector which represents the upward direction for the camera.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicContainer.Add(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <summary>
+            Add a graphic item to the display.
+            </summary>
+            <param name="geometry">The graphic item to add.</param>
+            <param name="visionData">The Cog3DVisionDataGraphicBase item that holds the 3D coordinate space to resolve the SelectedSpaceName of the item</param>
+            <param name="groupName">The name of the group the graphic item shall be added to.</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicContainer.UpdateByVisionData(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)">
+            <summary>
+            updates the geometries that belong to the vision data
+            </summary>
+            <param name="visionDataGraphic"></param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicContainer.Add(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String)">
+            <summary>
+            Add a graphic item to the display.
+            </summary>
+            <param name="item">The graphic item to add.</param>
+            <param name="groupName">The name of the group the graphic item shall be added to.</param>
+        </member>
+    </members>
+</doc>

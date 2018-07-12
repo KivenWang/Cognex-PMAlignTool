@@ -1,0 +1,85 @@
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+c:\users\lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Barcode.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Controls.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Core.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Display.Controls.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageProcessing.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.PMAlign.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Display.Controls.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.CorePlus.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Graphic.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Core.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.FGGigE.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ToolGroup.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageFile.dll
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Barcode.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Core.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Display.Controls.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageProcessing.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.PMAlign.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Display.Controls.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.CorePlus.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Graphic.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Core.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.FGGigE.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ToolGroup.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.xml
+C:\Users\Lyd\Documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageFile.xml
+C:\Users\Lyd\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PatternRecognizer.resources
+C:\Users\birch\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\birch\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\birch\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Barcode.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Controls.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Core.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Display.Controls.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageProcessing.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.PMAlign.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Display.Controls.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.CorePlus.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Graphic.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Core.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.FGGigE.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ToolGroup.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageFile.dll
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Barcode.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Core.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.Display.Controls.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageProcessing.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.PMAlign.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Display.Controls.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.CorePlus.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Graphic.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.Core.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.FGGigE.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ToolGroup.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro3D.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Cognex.VisionPro.ImageFile.xml
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PatternRecognizer.resources
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\birch\Desktop\pass data\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\lyd\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\lyd\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\lyd\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\14611\Desktop\Cognex Recognize\CognexRecognizeProject\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\14611\Desktop\Cognex Recognize\CognexRecognizeProject\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\14611\Desktop\Cognex Recognize\CognexRecognizeProject\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

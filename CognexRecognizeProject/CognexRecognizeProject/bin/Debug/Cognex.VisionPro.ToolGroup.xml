@@ -1,0 +1,1016 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cognex.VisionPro.ToolGroup</name>
+    </assembly>
+    <members>
+        <member name="T:Cognex.VisionPro.ToolGroup.CogToolGroup">
+            <summary>
+            A VisionPro tool that contains a set of VisionPro tools.  Running the
+            CogToolGroup implicitly runs each of the tools it contains.  The run
+            status and records of the CogToolGroup are based on the aggregate of all
+            its contained tools.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Implementation.Internal.CogUserTool">
+            <summary>
+            A base class for tools that have a collection of other tools.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserTool.SfAbortRunOnToolFailure">
+            <summary>
+            State flag for the AbortRunOnToolFailure property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserTool.SfLastRunRecordEnable">
+            <summary>
+            State flag for the LastRunRecordEnable property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserTool.SfScript">
+            <summary>
+            State flag for the Script property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserTool.SfNextSf">
+            <summary>
+            Next state flag to be used in derived classes.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.CreateNewScript(Cognex.VisionPro.Implementation.Internal.CogScriptLanguageConstants)">
+            <summary>
+            Cognex internal use only.
+            </summary>
+            <param name="lang">Cognex internal use only.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.EditExistingScript">
+            <summary>
+            Cognex internal use only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.ScriptRefeshRequested(System.Object,System.EventArgs)">
+            <summary>
+            Allows a derived class to be notified when a user requests the auto-genereated
+            portion of the script to be refreshed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.DefineScriptTerminal(System.String,System.Object,System.String,System.Boolean)">
+            <summary>
+            Called from a script's initialize() funciton to define a tool group
+            terminal associated with the script.
+            </summary>
+            <param name="desiredType">The data type associated with the terminal</param>
+            <param name="thing">An initial copy of the object</param>
+            <param name="key">The name of the terminal, also used to access the value of the terminal</param>
+            <param name="isInput">True to create an input terminal, false for an output terminal</param>
+            <returns>True if terminal is successfully created.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.DefineScriptTerminal(System.Object,System.String,System.Boolean)">
+            <summary>
+            Called from a script's initialize() funciton to define a tool group
+            terminal associated with the script.
+            </summary>
+            <param name="obj">An object which provides the initial contents of the terminal, and is also
+            used to determine the type of data which is stored in the terminal.</param>
+            <param name="key">A key value used to identify the terminal when setting or getting terminal data, also
+            used as the name of the teriminal in the GUI.</param>
+            <param name="isInput">True to define an input terminal, False to define an output terminal.</param>
+            <returns>True if the terminal was successfully created.</returns>
+            <!-- Failed to insert some or all of included XML --><include file="k:\docvob\vx\nsrc\ProgrammingReference\src\netstore\ToolGroup\CogToolGroup.xml" path="//member[@name=&quot;M:Cognex.VisionPro.ToolGroup.CogToolGroup.DefineScriptTerminal(System.Object,System.String,System.Boolean)&quot;]/*"/>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.GetScriptTerminalData(System.String)">
+            <summary>
+            Retrieves the data associated with a terminal.  Can be called on both input and output terminals.
+            </summary>
+            <param name="key">The name of the terminal</param>
+            <returns>A System.Object that should be cast to a more specific type, or null if
+            no terminal could be found matching "key".</returns>
+            <!-- Failed to insert some or all of included XML --><include file="k:\docvob\vx\nsrc\ProgrammingReference\src\netstore\ToolGroup\CogToolGroup.xml" path="//member[@name=&quot;M:Cognex.VisionPro.ToolGroup.CogToolGroup.GetScriptTerminalData(System.String)&quot;]/*"/>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.GetScriptTerminalData(System.String,System.Object@)">
+            <summary>
+            Retrieves the data associated with a terminal.  Can be called on both input and output terminals.
+            </summary>
+            <param name="key">The name of the terminal</param>
+            <param name="item">An object to receive the contents of the terminal.</param>
+            <returns>True if successful, False if key does not exist.</returns>
+            <!-- Failed to insert some or all of included XML --><include file="k:\docvob\vx\nsrc\ProgrammingReference\src\netstore\ToolGroup\CogToolGroup.xml" path="//member[@name=&quot;M:Cognex.VisionPro.ToolGroup.CogToolGroup.GetScriptTerminalData(System.String,System.Object@)&quot;]/*"/>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.SetScriptTerminalData(System.String,System.Object)">
+            <summary>
+            Sets the data associated with a terminal.
+            </summary>
+            <param name="key">The name of the terminal</param>
+            <param name="data">The data to associate with the terminal</param>
+            <returns>true if successful, false if no terminal matching "key"
+            could be found, or if "data" is inappropriate.</returns>
+            <!-- Failed to insert some or all of included XML --><include file="k:\docvob\vx\nsrc\ProgrammingReference\src\netstore\ToolGroup\CogToolGroup.xml" path="//member[@name=&quot;M:Cognex.VisionPro.ToolGroup.CogToolGroup.SetScriptTerminalData(System.String,System.Object)&quot;]/*"/>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.#ctor">
+            <summary>
+            Constructs a new instance of the CogUserTool class.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.#ctor(Cognex.VisionPro.Implementation.Internal.CogUserTool)">
+            <summary>
+            Constructs a new instance of the CogUserTool class.
+            </summary>
+            <param name="other">A CogUserTool to copy.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructs a new instance of the CogUserTool class.
+            </summary>
+            <param name="info">
+            The object that holds the serialized object data.
+            </param>
+            <param name="context">
+            The contextual information about the SerializationInfo.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.Clone">
+            <summary>
+            Creates a deep copy of the user tool.
+            </summary>
+            <returns>A deep copy of the cloned user tool.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.Dispose(System.Boolean)">
+            <summary>
+            Releases the resources used by the CogUserTool instance.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.AddCompositeLastRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Adds all of the contained tools' last run records to the supplied
+            record.
+            </summary>
+            <param name="currentRecord">The record to append the contained tools' last run records to.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.AddSharedGraphics(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Shares all graphics between image records with the same space tree in the passed ICogRecord
+            </summary>
+            <param name="compositeRecord_in">The record containing the other records</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.InternalCreateCurrentRecord(Cognex.VisionPro.ICogRecord,System.Int32)">
+            <summary>
+            Called by the CreateCurrentRecord method to create a record containing the
+            current state of the tool.
+            </summary>
+            <param name="newRecord">A newly-created Current record, to which the derived tool may
+            add new sub-records.</param>
+            <param name="currentRecordEnable">The value of the CurrentRecordEnable property.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.InternalCreateLastRunRecord(Cognex.VisionPro.ICogRecord,System.Int32,System.Int32)">
+            <summary>
+            Called by the CreateLastRunRecord method to create a record containing the
+            state of the tool after the last call to its Run method.
+            </summary>
+            <param name="newRecord">A newly-created LastRun record, to which the derived tool may
+            add new sub-records.</param>
+            <param name="lastRunRecordEnable">The value of the LastRunRecordEnable property during the last call to its Run method.</param>
+            <param name="lastRunRecordDiagEnable">The value of the LastRunRecordDiagEnable property during the last call to its Run method.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.FindRunRecord(Cognex.VisionPro.ICogRecord,System.String)">
+            <summary>
+            Finds a specific run record in a tree of run records
+            </summary>
+            <param name="baseRecord">Base of the tree to search</param>
+            <param name="recordName">Name of the record to look for</param>
+            <returns>A reference to the found record, or null if none found</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.AddGraphicToRunRecord(Cognex.VisionPro.ICogGraphic,Cognex.VisionPro.ICogRecord,System.String,System.String)">
+            <summary>
+            Should only be called from tool group script.  Adds a
+            graphic to a specified run record.
+            </summary>
+            <param name="graphic">A CogGraphic object to add</param>
+            <param name="baseRecord">A tree of CogRecords</param>
+            <param name="recordName">The name of the specific record where the graphic should be added</param>
+            <param name="annotation">A key string used to identify your graphic</param>
+            <returns>True if the desired record was found and the graphic successfully added.</returns>
+            <!-- Failed to insert some or all of included XML --><include file="k:\docvob\vx\nsrc\ProgrammingReference\src\netstore\ToolGroup\CogToolGroup.xml" path="//member[@name=&quot;M:Cognex.VisionPro.ToolGroup.CogToolGroup.AddGraphicToRunRecord(Cognex.VisionPro.ICogGraphic,Cognex.VisionPro.ICogRecord,System.String,System.String)&quot;]/*"/>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.InternalRun(System.String@)">
+            <summary>
+            Called by the Run method to perform the main processing of the tool.
+            </summary>
+            <param name="message">Can be set in the InternalRun function in order to
+            save a message in the RunStatus object.</param>
+            <returns>CogToolResultConstant indicating overall tool run result.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.RunTool(Cognex.VisionPro.ICogTool,System.String@,Cognex.VisionPro.CogToolResultConstants@)">
+            <summary>
+            Should only be called from tool group script. Runs a single tool. Will
+            not run the tool if it is currently disabled.
+            </summary>
+            <param name="subTool">The tool to run.</param>
+            <param name="message">
+            This is the message corresponding to the worst tool result encountered
+            during the current run of the tool group. Here an Error result is
+            considered worse than Reject, which is considered worse than Warning,
+            which is considered worse than Accept. So if the result from running
+            the supplied (sub) tool is worse than the value of the result
+            argument, then this message argument is overwritten to reflect this
+            tool's run.
+            </param>
+            <param name="result">
+            This is the value of the worst tool result encountered during the
+            current run of the tool group. Here an Error result is considered
+            worse than Reject, which is considered worse than Warning, which is
+            considered worse than Accept. So if the result from running the
+            supplied (sub) tool is worse than the input value of this argument,
+            then this argument is overwritten with the new, worse result value.
+            </param>
+            <exception cref="T:System.Exception">
+            Thrown when this (sub) tool returns an Error result and the tool
+            group's AbortRunOnToolFailure property is True.
+            </exception>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.Tool_Changed(System.Object,Cognex.VisionPro.CogChangedEventArgs)">
+            <summary>
+            Called when one of the contained tools raises its Changed event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.GetSubTools(Cognex.VisionPro.ICogTool)">
+            <summary>
+            Returns the publicly visible collection of tools.
+            </summary>
+            <param name="tool">The containing tool.</param>
+            <returns>A CogToolCollection of contained tools.  Returns null (Nothing in Visual Basic) if the containing tool is not a CogUserTool subclass or does not expose a public Tools property.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.GetDisabledSubTools(Cognex.VisionPro.ICogTool)">
+            <summary>
+            Returns the publicly visible collection of disabled tools.
+            </summary>
+            <param name="tool">The containing tool.</param>
+            <returns>A CogToolCollection of disabled tools.  Returns null (Nothing in Visual Basic) if the containing tool is not a CogUserTool subclass or does not expose a public DisabledTools property.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.IsOrIsDescendentOf(Cognex.VisionPro.ICogTool,Cognex.VisionPro.ICogTool,System.Boolean)">
+            <summary>
+            Determines if a tool is the same as or is contained by another tool or
+            one of the other tool's descendents.
+            </summary>
+            <param name="potentialDescendent">The potentially contained tool.</param>
+            <param name="potentialAncestor">The potentially containing tool.</param>
+            <param name="decendIntoToolBlocks">Should we decend into tool blocks?</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.IsOrIsDescendentOf(Cognex.VisionPro.CogToolCollection,Cognex.VisionPro.ICogTool)">
+            <summary>
+            Determines if a tool or one of its descendents ownes a specific scope.
+            </summary>
+            <param name="potentialDescendentsScope">The potentially owned scope.</param>
+            <param name="potentialAncestor">The potentially owning tool.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.RemoveAnonymousDatabindings(Cognex.VisionPro.ICogTool,Cognex.VisionPro.ICogTool[])">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.RemoveAnonymousDatabindings(Cognex.VisionPro.ICogTool,Cognex.VisionPro.ICogTool)">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.RemoveAnonymousDatabindings(Cognex.VisionPro.ICogTool)">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.RemoveAnonymousDatabindings(Cognex.VisionPro.ICogTool[])">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.GetContainedDataBindings(Cognex.VisionPro.ICogTool)">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.GetContainedDataBindings(Cognex.VisionPro.ICogTool,Cognex.VisionPro.ICogTool)">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.BeginInit">
+            <summary>
+            Signals the object that initialization is starting.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.EndInit">
+            <summary>
+            Signals the object that initialization is complete.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogUserTool.OnDeserialization(System.Object)">
+            <summary>
+            Runs when the entire object graph has been deserialized.
+            </summary>
+            <param name="sender">The object that initiated the callback.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.Script">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.ScriptError">
+            <summary>
+            Cognex Internal Use Only.
+            </summary>
+            <value>Cognex Internal Use Only.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.AbortRunOnToolFailure">
+            <summary>
+            Gets or sets a flag indicating if the Run invocation should abort if
+            the Run method of any of its contained tools fails.
+            </summary>
+            <value>True means only tools upto the first failing tool are run; false means all tools are run regardless of failures.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.LastRunRecordEnable">
+            <summary>
+            Enable creation of records by bitwise ORing the 
+            appropriate CogUserToolLastRunRecordConstants.
+            </summary>
+            <value> This read/write property is a bitwise combination of 
+            CogUserToolLastRunRecordConstants.
+            /// Default value is CompositeSubToolGraphics.
+            </value>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+            <para>Fires when this property changes.</para>
+            <para>The following state flags may be affected:</para>
+            <list type="bullet">
+            <item> SfLastRunRecordEnable </item>
+            <item> SfCreateLastRunRecord </item>
+            </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.Tools">
+            <summary>
+            Gets the collection of tools within this user tool.
+            </summary>
+            <value>
+            The collection of VisionPro tools contained within this 
+            CogUserTool.  This collection may even contain one or more 
+            CogUserTools.
+            </value>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.DisabledTools">
+            <summary>
+            Gets the collection of tools that are omitted from those run by this 
+            user tool.
+            </summary>
+            <value>
+            The collection of VisionPro tools omitted from those run by this CogUserTool. 
+            This collection is a subset of that of the Tools property.
+            </value>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.ExtraTools">
+            <summary>
+            Tools that aren't part of the main tools collection 
+            but are still tools owned by this user tool... like
+            ToolBlock Inputs and Outputs. These tools may or 
+            may not show up in main ToolTreeView.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.Implementation.Internal.CogUserTool.AllTools">
+            <summary>
+            All the Tools owned by this user tool, includes tools 
+            that aren't part of the main tools collection but are
+            still tools owned by this user tool... like ToolBlock
+            Inputs and Outputs.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Implementation.Internal.ICogQueryContainerSupport">
+            <summary>
+            Implemented by CogToolPalette clients to allow the palette to query if
+            a persisted file contains a tool supported by the client.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.ICogQueryContainerSupport.IsSupported(System.IO.FileInfo)">
+            <summary>
+            Determines if file contains a tool supported by the client.
+            </summary>
+            <param name="file">A FileInfo for a persisted tool file.</param>
+            <returns>True if the client supports the persisted tool; false otherwise.</returns>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolGroup.CogToolGroup.SfGarbageCollectionEnabled">
+            <summary>
+            State flag for the GarbageCollectionEnabled property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolGroup.CogToolGroup.SfGarbageCollectionFrequency">
+            <summary>
+            State flag for the GarbageCollectionFrequency property.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolGroup.CogToolGroup.SfScriptData">
+            <summary>
+            State flag for terminal data associated with a script
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolGroup.CogToolGroup.SfNextSf">
+            <summary>
+            Next state flag to be used in derived classes.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.#ctor">
+            <summary>
+            Constructs a new instance of the CogToolGroup class.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.#ctor(Cognex.VisionPro.ToolGroup.CogToolGroup)">
+            <summary>
+            Constructs a new instance of the CogToolGroup class.
+            </summary>
+            <param name="other">A CogToolGroup to copy.</param>
+            <remarks>Cognex recommends using 
+            <see cref="M:Cognex.VisionPro.CogSerializer.DeepCopyObject(System.Object)"/>
+            instead of this copy constructor.
+            </remarks>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructs a new instance of the CogToolGroup class.
+            </summary>
+            <param name="info">
+            The object that holds the serialized object data.
+            </param>
+            <param name="context">
+            The contextual information about the SerializationInfo.
+            </param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.Clone">
+            <summary>
+            Creates a deep copy of the tool group.
+            </summary>
+            <returns>A deep copy of the cloned tool group.</returns>
+            <remarks>Cognex recommends using 
+            <see cref="M:Cognex.VisionPro.CogSerializer.DeepCopyObject(System.Object)"/>
+            instead of this method.
+            </remarks>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.InternalRun(System.String@)">
+            <summary>
+            Called by the Run method to perform the main processing of the tool.
+            </summary>
+            <param name="message">Can be set in the InternalRun function in order to
+            save a message in the RunStatus object.</param>
+            <returns>CogToolResultConstant indicating overall tool run result.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.OnRan">
+            <summary>
+            Raises the Ran event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroup.Upgrade(System.IntPtr,System.Collections.Hashtable)">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolGroup.CogToolGroup.Tools">
+            <summary>
+            Gets the collection of tools within this tool group.
+            </summary>
+            <value>The collection of VisionPro tools contained within this CogToolGroup.  This collection may even contain one or more CogToolGroup tools.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolGroup.CogToolGroup.DisabledTools">
+            <summary>
+            Gets the collection of tools that are omitted from those run by this 
+            tool group.
+            </summary>
+            <value>The collection of VisionPro tools omitted from those run by this CogToolGroup.  This collection is a subset of that of the Tools property.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolGroup.CogToolGroup.GarbageCollectionEnabled">
+            <summary>
+            Gets or sets the flag indicating that garbage collection is to be run
+            periodically.
+            </summary>
+            <value>Boolean flag indicating that garbage collection is to be run periodically.  The frequency of the garbage collection invocation is specified using the GarbageCollectionFrequency property.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolGroup.CogToolGroup.GarbageCollectionFrequency">
+            <summary>
+            Gets or sets the frequency at which garbage collection is to be run.
+            </summary>
+            <value>Number of Run method invocations at which garbage collection is to be invoked.  This value is ignored if the GarbageCollectionEnabled property is false.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolGroup.CogToolGroup.ScriptData">
+            <summary>
+            Cognex internal use only.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.Implementation.Internal.CogUserToolLastRunRecordConstants">
+            <summary>
+             Enumerates options data that can be included in 
+             the tool's LastRunRecord.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserToolLastRunRecordConstants.None">
+            <summary>
+             Do not include the LastRunRecords of this tool's contained sub-tools.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserToolLastRunRecordConstants.CompositeSubToolRecords">
+            <summary>
+             Include the LastRunRecords of this tool's contained sub-tools.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.Implementation.Internal.CogUserToolLastRunRecordConstants.CompositeSubToolSharedGraphics">
+            <summary>
+            Share the graphics between image records of this tool's LastRunRecord
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ToolGroup.ICogToolGroupScript">
+            <summary>
+            Defines the interface to be implemented by user script, so that it can be called from
+            VisionPro at the appropriate time.  Normally the user script will inherit the
+            CogToolGroupBaseScript class rather than implement ICogToolGroupScript directly.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.ICogToolGroupScript.GroupRun(System.String@,Cognex.VisionPro.CogToolResultConstants@)">
+            <summary>
+            Called when the tool group is run.
+            </summary>
+            <param name="message">Result message for the tool group.  Should be used
+            as an argument when calling RunTool in script. Can
+            also be overwritten with a script specific result message.</param>
+            <param name="result">Result value for the tool group.  Should be used
+            as an argument when calling RunTool from script.  Can also be overwritten
+            if the script "calculates" the final result.</param>
+            <returns>True if VisionPro should run the tool group, False if VisionPro should not run the
+            tool group because the script is running the tools.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.ICogToolGroupScript.ModifyLastRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Called when the LastRunRecord is created.  Allow scripts to modify the contents
+            of the run record.
+            </summary>
+            <param name="lastRecord">Base ICogRecord of the LastRunRecord tree.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.ICogToolGroupScript.ModifyCurrentRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Called when the CurrentRunRecord is created.  Allow scripts to modify the contents
+            of the run record.
+            </summary>
+            <param name="currentRecord">Base ICogRecord of the CurrentRunRecord tree.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.ICogToolGroupScript.Initialize(Cognex.VisionPro.ToolGroup.CogToolGroup)">
+            <summary>
+            Called when the script is initialized by VisionPro.  Any one-time initialization should
+            be performed here.
+            </summary>
+            <param name="host">A reference to the CogToolGroup hosting this script.</param>
+        </member>
+        <member name="T:Cognex.VisionPro.ToolGroup.CogToolGroupBaseScript">
+            <summary>
+            Base class which user script will override.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroupBaseScript.GroupRun(System.String@,Cognex.VisionPro.CogToolResultConstants@)">
+            <summary>
+            Called when the tool group is run.  This function should be overridden
+            to provide custom tool group behavior in script.
+            </summary>
+            <param name="message">Result message for the tool group.  Should be used
+            as an argument when calling RunTool in script. Can
+            also be overwritten with a script specific result message.</param>
+            <param name="result">Result value for the tool group.  Should be used
+            as an argument when calling RunTool from script.  Can also be overwritten
+            if the script "calculates" the final result.</param>
+            <returns>True if VisionPro should run the tool group, False if VisionPro should not run the
+            tool group because the script is running the tools.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroupBaseScript.ModifyCurrentRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Called when the CurrentRunRecord is created.  Allow scripts to modify the contents
+            of the run record.
+            </summary>
+            <param name="currentRecord">Base ICogRecord of the CurrentRunRecord tree.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroupBaseScript.ModifyLastRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Called when the LastRunRecord is created.  Allow scripts to modify the contents
+            of the run record.
+            </summary>
+            <param name="lastRecord">Base ICogRecord of the LastRunRecord tree.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolGroup.CogToolGroupBaseScript.Initialize(Cognex.VisionPro.ToolGroup.CogToolGroup)">
+            <summary>
+            Called when the script is initialized by VisionPro.  If you override this function, you
+            must make sure to call the base class' Initialize function.  Any one-time initialization
+            should be performed here.
+            </summary>
+            <param name="host">A reference to the CogToolGroup hosting this script.  This parameter
+            should be passed to the base class' initialize function.</param>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolGroup.CogToolGroupBaseScript.toolGroup">
+            <summary>
+            A stored reference to the CogToolGroup which is hosting this script.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockAdvancedScriptBase.GroupRun(System.String@,Cognex.VisionPro.CogToolResultConstants@)">
+            <summary>
+            Called when the tool group is run.  This function should be overridden
+            to provide custom tool block behavior in script.
+            </summary>
+            <param name="message">Result message for the tool block.</param>
+            <param name="result">Result value for the tool block.</param>
+            <returns>True if VisionPro should run the tool block as it normally would, False if VisionPro should not run the
+            tool block because the script is running the tools.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockAdvancedScriptBase.ModifyCurrentRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Called when the CurrentRunRecord is created.  Allow scripts to modify the contents
+            of the run record.
+            </summary>
+            <param name="currentRecord">Base ICogRecord of the CurrentRunRecord tree.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockAdvancedScriptBase.ModifyLastRunRecord(Cognex.VisionPro.ICogRecord)">
+            <summary>
+            Called when the LastRunRecord is created.  Allow scripts to modify the contents
+            of the run record.
+            </summary>
+            <param name="lastRecord">Base ICogRecord of the LastRunRecord tree.</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockAdvancedScriptBase.Initialize(Cognex.VisionPro.ToolGroup.CogToolGroup)">
+            <summary>
+            Called when the script is initialized by VisionPro.  If you override this function, you
+            must make sure to call the base class' Initialize function.  Any one-time initialization
+            should be performed here.
+            </summary>
+            <param name="host">A reference to the CogToolGroup hosting this script.  This parameter
+            should be passed to the base class' initialize function.</param>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolBlock.CogToolBlockAdvancedScriptBase.toolBlock">
+            <summary>
+            A stored reference to the CogToolGroup which is hosting this script.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ToolBlock.CogToolBlock">
+            <summary>
+            Similar to CogToolGroup, A VisionPro tool that contains a set of VisionPro tools.  
+            Running the CogToolBlock runs each of the tools it contains.  The run
+            status and records of the CogToolBlock are based on the aggregate of all
+            its contained tools.
+            Exposed Inputs and Outputs collection properties provide customization 
+            and storage for graphically linked terminals. 
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.#ctor(Cognex.VisionPro.ToolBlock.CogToolBlock)">
+            <summary>
+            CogToolBlock does not support copy construction.
+            Please use <see cref="M:Cognex.VisionPro.CogSerializer.DeepCopyObject(System.Object)"/>
+            to copy a CogToolBlock.
+            </summary>
+            <exception cref="T:System.NotSupportedException"/>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.Clone">
+            <summary>
+            CogToolBlock does not support Clone().
+            It's not well defined if Clone should return a deep or shallow copy.
+            Please use <see cref="M:Cognex.VisionPro.CogSerializer.DeepCopyObject(System.Object)"/>
+            to create a copy of a CogToolBlock.
+            </summary>
+            <exception cref="T:System.NotSupportedException"/>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.mInputs_Changed(System.Object,Cognex.VisionPro.CogChangedEventArgs)">
+            <summary>
+            Handles changed events from the inputs collection.  Responsible
+            for keeping the actual ToolTeminals (Displayed in the GUI)
+            in sync with the inputs collection.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.mOutputs_Changed(System.Object,Cognex.VisionPro.CogChangedEventArgs)">
+            <summary>
+            Handles changed events from the outputs collection.  Responsible
+            for keeping the actual ToolTeminals (Displayed in the GUI)
+            in sync with the output collection.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.DefineScriptTerminal(System.String,System.Object,System.String,System.Boolean)">
+            <summary>
+            This API is obsolete, CogToolBlock does not support Script Only Terminals.
+            Use CogToolBlock.Inputs and CogToolBlock.Outputs collections instead.
+            </summary>
+            <param name="desiredType">The data type associated with the terminal</param>
+            <param name="thing">An initial copy of the object</param>
+            <param name="key">The name of the terminal, also used to access the value of the terminal</param>
+            <param name="isInput">True to create an input terminal, false for an output terminal</param>
+            <returns>True if terminal is successfully created.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.DefineScriptTerminal(System.Object,System.String,System.Boolean)">
+            <summary>
+            This API is obsolete, CogToolBlock does not support Script Only Terminals.
+            Use CogToolBlock.Inputs and CogToolBlock.Outputs collections instead.
+            </summary>
+            <param name="obj">An object which provides the initial contents of the terminal, and is also
+            used to determine the type of data which is stored in the terminal.</param>
+            <param name="key">A key value used to identify the terminal when setting or getting terminal data, also
+            used as the name of the teriminal in the GUI.</param>
+            <param name="isInput">True to define an input terminal, False to define an output terminal.</param>
+            <returns>True if the terminal was successfully created.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.GetScriptTerminalData(System.String)">
+            <summary>
+            This API is obsolete, CogToolBlock does not support Script Only Terminals.
+            Use CogToolBlock.Inputs and CogToolBlock.Outputs collections instead.
+            </summary>
+            <param name="key">The name of the terminal</param>
+            <returns>A System.Object that should be cast to a more specific type, or null if
+            no terminal could be found matching "key".</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.GetScriptTerminalData(System.String,System.Object@)">
+            <summary>
+            This API is obsolete, CogToolBlock does not support Script Only Terminals.
+            Use CogToolBlock.Inputs and CogToolBlock.Outputs collections instead.
+            </summary>
+            <param name="key">The name of the terminal</param>
+            <param name="item">An object to receive the contents of the terminal.</param>
+            <returns>True if successful, False if key does not exist.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.SetScriptTerminalData(System.String,System.Object)">
+            <summary>
+            This API is obsolete, CogToolBlock does not support Script Only Terminals.
+            Use CogToolBlock.Inputs and CogToolBlock.Outputs collections instead.
+            </summary>
+            <param name="key">The name of the terminal</param>
+            <param name="data">The data to associate with the terminal</param>
+            <returns>true if successful, false if no terminal matching "key"
+            could be found, or if "data" is inappropriate.</returns>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.CreateNewScript(Cognex.VisionPro.Implementation.Internal.CogScriptLanguageConstants,Cognex.VisionPro.ToolBlock.CogToolBlockScriptTypeConstants)">
+            <summary>
+            Creates a new ToolBlock script using the specified language and type.
+            </summary>
+            <param name="lang">The langugage of the script to create (VB.NET or C#).</param>
+            <param name="type">The type of the script to create (simple or advanced).</param>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.ScriptRefeshRequested(System.Object,System.EventArgs)">
+            <summary>
+            Refreshes the auto-generated section of the script (if any exist) 
+            to update for changes made to the ToolBlock.  Should only be called 
+            from the ScriptEditor, as this only updates the text... The script
+            editor still needs to recompile and replace the actual script object.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.GetReferences">
+            <summary>
+            Gets an ArrayList populated with a CogReferencedAssembly 
+            for each assembly a ToolBlock script will reference
+            (based on contianed tools, inputs, and outputs).
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.MergeReferences(System.Collections.ArrayList)">
+            <summary>
+            Merges the existing referenced assemblies with an other assemblies
+            this ToolBlock may need (based on contianed tools, inputs, and outputs).
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.MergeReference(System.Collections.ArrayList,Cognex.VisionPro.Implementation.Internal.CogReferencedAssembly)">
+            <summary>
+            Adds the reference to the list if it is not allready present.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlock.ContainsReference(System.Collections.ArrayList,Cognex.VisionPro.Implementation.Internal.CogReferencedAssembly)">
+            <summary>
+            Returns true if there is allready a reference to <paramref name="reference"/>
+            in <paramref name="list"/>, otherwise returns false.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolBlock.CogToolBlock.ExtraTools">
+            <summary>
+            Tools that aren't part of the main tools collection but are still tools owned by this 
+            user tool... like ToolBlock Inputs and Outputs.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolBlock.CogToolBlock.Tools">
+            <summary>
+            Gets the collection of tools within this tool block.
+            </summary>
+            <value>The collection of VisionPro tools contained within this CogToolBlock.</value>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolBlock.CogToolBlock.Inputs">
+            <summary>
+            A CogToolBlockTerminalCollection of input terminals.
+            The default is an empty collection.
+            </summary>
+            <remarks>
+            <list type="bullet">
+            Changing the Inputs collection automatically refreshes
+            the the Tool terminals such that:
+            <item>
+            An (external) Tool input terminal is added to the ToolBlock
+            for every CogToolTerminal in the Inputs collection. 
+            The CogToolTerminal name and the path to the
+            CogToolTerminal Value property are used to 
+            construct the Tool terminals.
+            </item>
+            <item>
+            Any DataBindings contained in ToolBlock.DataBindings 
+            which are linked to terminals that are no longer in 
+            the collection are removed.
+            </item>
+            <item>
+            A (internal) Tool output terminal is added to the ToolBlock.Inputs
+            collection (which is also a tool) for every
+            CogToolTerminal in the Inputs collection. 
+            The CogToolTerminal name and the path to the
+            CogToolTerminal Value property are used to 
+            construct the Tool terminals.
+            </item>
+            <item>
+            Any DataBindings contained in ToolBlock.Inputs.DataBindings
+            which are linked to CogToolTerminals terminals that are no
+            longer in the collection are removed.
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolBlock.CogToolBlock.Outputs">
+            <summary>
+            CogToolBlockTerminalCollection of output terminals.
+            The default is an empty collection.
+            </summary>
+            <remarks>
+            Changing the Outputs collection automatically refreshes
+            the Tool terminals such that:
+            <list type="bullet">
+            <item>
+            An (external) Tool output terminal is added to the ToolBlock
+            for every CogToolTerminal in the Outputs collection. 
+            The CogToolTerminal name and the path to the CogToolTerminal
+            Value property are used to construct the Tool terminals.
+            </item>
+            <item>
+            Any DataBindings contained in ToolBlock.DataBindings 
+            which are linked to terminals that are no longer in 
+            the collection are removed.
+            </item>
+            <item>
+            An (internal) Tool input terminal is added to the 
+            ToolBlock.Inputs collection (which is also a tool) for every 
+            CogToolTerminal in the Outputs collection. The CogToolTerminal
+            name and the path to the CogToolTerminal Value property are
+            used to construct the Tool terminals.
+            </item>     
+            <item>
+            Any DataBindings contained in ToolBlock.Outputs.DataBindings
+            which are linked to CogToolTerminals terminals that are no
+            longer in the collection are removed.
+            </item>
+            </list>
+            </remarks>    
+        </member>
+        <member name="T:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection">
+            <summary>
+            A collection of CogToolBlockTerminals
+            </summary>
+            <remarks>
+            Used by <see cref="T:Cognex.VisionPro.ToolBlock.CogToolBlock"/> as a container for
+            input and output property collections.
+            <para>
+            Note that CogToolBlockTerminal also implements ICogTool (even though the 
+            run method does not do anything).  This allows DataBindings to the terminal
+            values via the CogDataBinding mechanism supported by all VisionPro tools.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.SfFailOnInvalidDataBinding">
+            <summary>
+            State flag for the FailOnInvalidDataBinding property.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.#ctor(Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection)">
+            <summary>
+            Not Supported, use CogSerializer to Copy an 
+            instance of CogToolBlockTerminalCollection.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization Constructor - necessary for save/restore.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.GetFormattedTerminalStrings(System.String)">
+            <summary>
+            Gets a list of specially formatted strings that represent the names
+            and paths to all the CogToolBlockTerminals in this collection.  These 
+            strings are formatted such that they can be passed directly to 
+            ToolTerminals.SetToolInputTerminals(ICogTool tool, string[] terminals) 
+              or 
+            ToolTerminals.SetToolOutputTerminals(ICogTool tool, string[] terminals)
+            </summary>
+            <remarks>
+            Intended for Cognex Internal Use only... 
+            this API is subject to change.
+            </remarks>
+            <param name="pathRoot">A path to prepend to the returned terminal paths, 
+            Used to create Tool terminal strings for items of the collection when the 
+            collection is a property of a Tool.
+            </param>
+            <remarks>Intended for Cognex Internal Use</remarks>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.GetFormattedTerminalStrings">
+            <summary>
+            Gets a list of specially formatted strings that represent the names
+            and paths to all the CogToolBlockTerminals in this collection.  These 
+            strings are formatted such that they can be passed directly to 
+            ToolTerminals.SetToolInputTerminals(ICogTool tool, string[] terminals) 
+              or 
+            ToolTerminals.SetToolOutputTerminals(ICogTool tool, string[] terminals)
+            </summary>
+            <remarks>
+            Intended for Cognex Internal Use only... 
+            this API is subject to change.
+            </remarks>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.CreateCurrentRecord">
+            <summary>
+            The CreateCurrentRecord Method for 
+            CogToolBlockTerminalCollection does not do anything.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.CreateLastRunRecord">
+            <summary>
+            The CreateLastRunRecord Method for 
+            CogToolBlockTerminalCollection does not do anything.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.Run">
+            <summary>
+            The Run Method for 
+            CogToolBlockTerminalCollection does not do anything.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.OnDisposed">
+            <summary>
+            Raises the Disposed event.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.OnDeserialization(System.Object)">
+            <summary>
+            Runs when the entire object graph has been deserialized.
+            </summary>
+            <param name="sender">The object that initiated the callback.</param>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.FailOnInvalidDataBinding">
+            <summary>
+            Specifies that the Run method is to fail if executed while one or more
+            data bindings are invalid.
+            </summary>
+        </member>
+        <member name="P:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.Parent">
+            <summary>
+            Returns the Parent CogToolBlock.
+            </summary>
+        </member>
+        <member name="E:Cognex.VisionPro.ToolBlock.CogToolBlockTerminalCollection.Disposed">
+            <summary>
+            This event is raised when the Dispose method is called. It gets called
+            before any disposing is done so the properties of this object are
+            still valid at this point.
+            </summary>
+        </member>
+        <member name="T:Cognex.VisionPro.ToolBlock.CogToolBlockScriptTypeConstants">
+            <summary>
+            Enumeration of different ToolBlock Script types.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolBlock.CogToolBlockScriptTypeConstants.Advanced">
+            <summary>
+            Advanced script with 4 default entry points provided.  Tools, Inputs, and Outputs
+            can be accessed by normal ToolBlock API.
+            </summary>
+        </member>
+        <member name="F:Cognex.VisionPro.ToolBlock.CogToolBlockScriptTypeConstants.Simple">
+            <summary>
+            A simple script with a single entry point.  Simple scripts contian auto-generated code 
+            which provides easy access to ToolBlock Tools, Inputs, and Outputs by name.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogScriptGen.GetImports(Cognex.VisionPro.ToolBlock.CogToolBlock)">
+            <summary>
+            Gets an ArrayList populated with a String 
+            for each using/imports statement a ToolBlock script will
+            want to include.
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogScriptGen.MergeImports(System.Collections.Generic.List{System.String},Cognex.VisionPro.ToolBlock.CogToolBlock)">
+            <summary>
+            Merges the existing imports with imports this ToolBlock
+            may need (based on contianed tools, inputs, and outputs).
+            </summary>
+        </member>
+        <member name="M:Cognex.VisionPro.Implementation.Internal.CogScriptGen.MergeImport(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Adds the reference to the list if it is not allready present.
+            </summary>
+        </member>
+    </members>
+</doc>

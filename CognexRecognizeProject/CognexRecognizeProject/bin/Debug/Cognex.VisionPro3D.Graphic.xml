@@ -1,0 +1,1247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "Cognex.VisionPro3D.Graphic"
+    </assembly>
+    <members>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.DisplayMode">
+            <summary>
+Gets or sets the rendering mode for the display
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.CameraUpDirection">
+            <summary>
+Gets the camera's current up direction in the 3D scene's world space name
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.CameraTarget">
+            <summary>
+Gets the camera's current target position in the 3D scene's world space name
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.CameraPosition">
+            <summary>
+Gets the camera's current position in the 3D scene's world space name
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.SetView(Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3,Cognex.VisionPro3D.Cog3DVect3)">
+            <summary>
+Change the camera's position and look direction in the 3-D space.
+</summary>
+            <param name="position">New position of the camera.</param>
+            <param name="target">New target the camera is looking at.</param>
+            <param name="upDirection">New up direction of the camera.</param>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.MouseCoordinatesChanged">
+            <summary>
+Event is fired when <see cref="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.MouseCoordinates" /> has changed
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.MouseCoordinates">
+            <summary>
+Gets the current mouse coordinates in the 3D scene's world space name
+NOTE: if <see cref="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.MouseCoordinatesTracked" /> has to be set to true to get the current mouse coordinates, otherwise the value is invalid and null.
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.MouseCoordinatesTracked">
+            <summary>
+Gets or sets whether the coordinates of the mouse cursor are tracked or not
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.SaveAsImage(System.Int32,System.Int32,System.String)">
+            <summary>
+Renders the contents of the display to a PNG with the given resolution.
+</summary>
+            <param name="width">The given width.</param>
+            <param name="height">The given height.</param>
+            <param name="height">The path of the PNG file</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.RemoveGraphic(System.Int64)">
+            <summary>
+Removes the Cog3DGraphicBase object from the display
+</summary>
+            <note>
+If the graphic is a <see cref="T:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase" /> then all of the dependent <see cref="T:Cognex.VisionPro3D.Cog3DGeometryGraphicBase" /> will be removed too.
+</note>
+            <param name="graphicKey">the key of the graphic to be removed</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.UpdateGeometryGraphic(System.Int64,Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.ICog3DTransform)">
+            <summary>
+Updates the Cog3DGeometryGraphicBase object on the display
+</summary>
+            <param name="graphicKey">the key of the graphic on the display</param>
+            <param name="geometryGraphic">the Cog3DGeometryGraphicBase to update</param>
+            <param name="transform">the transofrm to be used on the shape (map the vertices from the selected space name 3d of the shape to the displays displaySpaceName3D)</param>
+            <param name="transform">the transofrm to be used on the geometry graphics to map the vertices from the SelectedSpaceName3D of the graphic to the display's displaySpaceName3D</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.AddGeometryGraphic(System.Int64,Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.ICog3DTransform)">
+            <summary>
+Adds a Cog3DGeometryGraphicBase to the display
+</summary>
+            <param name="groupKey">the key of the group to add the Cog3DGeometryGraphicBase to</param>
+            <param name="geometryGraphic">the ICog3DShapeGraphic to add</param>
+            <param name="transform">the transofrm to be used on the geometry graphics to map the vertices from the SelectedSpaceName3D of the graphic to the display's displaySpaceName3D</param>
+            <returns>the unique identifier of the graphic in the display</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.CreateGeometryGraphicsGroup(System.String)">
+            <summary>
+Creates a group for ICog3DShapeGraphic with the given name
+</summary>
+            <param name="groupName">the name of the group</param>
+            <returns>the unique identifier of the group in the display</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.DebugDump(System.String)">
+            <summary>
+Saves the content of the screen to the disk for debug purposes
+i.e. HOOPS will create HMF files from the model and the view objects that could be examined in HOOPS 3D Viewer
+</summary>
+            <param name="filePostFix">file name postfix to use</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.UpdateVisionDataGraphic(System.Int64,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String,System.Double,System.Boolean)">
+            <summary>
+Updates the Cog3DVisionDataGraphicBase object on the display
+</summary>
+            <param name="graphicKey">the key of the graphic on the display</param>
+            <param name="item">the Cog3DVisionDataGraphicBase to update</param>
+            <param name="displaySpaceName3D">the name of the sapce to be used for rendering</param>
+            <param name="resolution">the resolution in displaySpaceName3D units to be used for rendering</param>
+            <param name="updateGeometry">If true, the geometry of the VisionData will be re-rendered</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.AddVisionDataGraphic(System.Int64,Cognex.VisionPro3D.Cog3DVisionDataGraphicBase,System.String,System.Double)">
+            <summary>
+Adds a Cog3DVisionDataGraphicBase to the display
+</summary>
+            <param name="groupKey">the key of the group to add the Cog3DVisionDataGraphicBase to</param>
+            <param name="item">the Cog3DVisionDataGraphicBase to add</param>
+            <param name="displaySpaceName3D">the name of the sapce to be used for rendering</param>
+            <param name="resolution">the resolution in displaySpaceName3D units to be used for rendering</param>
+            <returns>return the unique identifier of the item on the display</returns>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.CreateVisionDataGraphicsGroup(System.String)">
+            <summary>
+Creates a group for ICog3DVisionDataGraphic with the given name
+</summary>
+            <param name="groupName">the name of the group</param>
+            <returns>the unique identifier of the group in the display</returns>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.IsDrawingEnabled">
+            <summary>
+Returns whether the screen refresh is enabled or not
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.EnableDrawing">
+            <summary>
+Enables refreshing the screen
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.DisableDrawing">
+            <summary>
+Disables refreshing the screen
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.Clear">
+            <summary>
+Clears the content of the screen
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.FitView">
+            <summary>
+Zooms in/out to fit all the drawn objects into the view
+Does not change the camera's orientation.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.ResetView">
+            <summary>
+Resets the view to the default initial camera position and view direction. 
+Looking at the scene from the top along the Z axis in a way to fit the whole scene
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.Update">
+            <summary>
+Updates the screen. Forces redraw.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl.SetBackgroundColor(System.Drawing.Color)">
+            <summary>
+Sets the background color of the display
+</summary>
+            <param name="color">The color to be set</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Implementation.Internal.ICog3DDisplayV2Impl">
+            <summary>
+This is the interface for the 3D display implementation class. The Cog3DDisplayV2 user control holds
+a ICog3DDisplayImpl member that represents the actual 3D engine implementation behind the scenes...
+</summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.DisplayModes">
+            <summary>
+This enum defines the available display modes for rendering 3D content
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.DisplayModes.Vertices">
+            <summary>The display will render the vertices of the 3D objects</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.DisplayModes.Surface">
+            <summary>The display will render the surfaces of the 3D objects</summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DGraphicBuffer">
+            <summary>
+This class is a helper class to initialize the low level 3D graphic buffer
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicFactory.CreateMultiple(Cognex.VisionPro.CogVisionDataContainer,System.Boolean)">
+            <summary>
+Creates a list of Cog3DVisionDataGraphicBase graphic wrappers from the CogVisionDataContainer input if it is supported.
+In case the input type is not supported, it return null or throws a NotSupportedException 
+based on the value of the throwIfNotSupported argument.
+The following CogVisionDataContainers are supported:
+<list type="bullet"><item>
+If it is a flat CogVisionDataContainer and all of its entries are <see cref="T:Cognex.VisionPro.CogImage16Range" />.
+</item><item>
+If its entries are CogVisionDataContainer themselves and each of those elements contains in turn
+exactly one <see cref="T:Cognex.VisionPro.CogImage16Range" /> and one <see cref="T:Cognex.VisionPro.CogImage16Grey" />.
+</item></list></summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicFactory.Create(Cognex.VisionPro.ICogVisionData,System.Boolean)">
+            <summary>
+Creates a Cog3DVisionDataGraphicBase graphic wrapper from the ICogVisionData input if it is supported.
+In case the input type is not supported, it returns null or throws a NotSupportedException 
+based on the value of the throwIfNotSupported argument.
+The following types are supported:
+<list type="bullet"><item><see cref="T:Cognex.VisionPro.CogImage16Range" /></item><item><see cref="T:Cognex.VisionPro.CogVisionDataContainer" /> if the followings are true:
+<list type="bullet"><item>
+It has one or many <see cref="T:Cognex.VisionPro.CogImage16Range" /> entries. 
+In this case the first one will be used to create a <see cref="T:Cognex.VisionPro3D.Cog3DRangeImageGraphic" /> from it.
+</item><item>
+It has exactly one <see cref="T:Cognex.VisionPro.CogImage16Range" /> and one <see cref="T:Cognex.VisionPro.CogImage16Grey" />.
+In this case the both of them will be used to create a <see cref="T:Cognex.VisionPro3D.Cog3DRangeImageGraphic" /> that has grey overlay set.
+</item><item>
+The collection contains at least one element that is itself a CogVisionDataContainer, and that element
+contains in turn exactly one CogImage16Range and one CogImage16Grey. 
+In this case the first RangeImage and its grey pair will be used to create a <see cref="T:Cognex.VisionPro3D.Cog3DRangeImageGraphic" /> that has grey overlay set.
+</item></list></item></list></summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DGraphicFactory">
+            <summary>
+This class is a 3D graphic factory class that can 
+ create the graphic wrapper for ICogVisionData, Shapes, etc.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DSphereGraphic.RealEqual(Cognex.VisionPro3D.Cog3DSphereGraphic,Cognex.VisionPro3D.Cog3DSphereGraphic,System.Double)">
+            <summary>
+Compares two Cog3DSphereGraphic for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DSphereGraphic to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DSphereGraphic to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DSphereGraphic.Shape">
+            <summary>
+Gets the underlying Cog3DSphere object of this graphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DSphereGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DSphereGraphic object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DSphereGraphic.Finalize">
+            <summary>
+Finalize this Cog3DSphereGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DSphereGraphic.Dispose">
+            <summary>
+Destruct this Cog3DSphereGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DSphereGraphic.#ctor(Cognex.VisionPro3D.Cog3DSphereGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DSphereGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DSphereGraphic.#ctor(Cognex.VisionPro3D.Cog3DSphere)">
+            <summary>
+Constructor that takes <see cref="T:Cognex.VisionPro3D.Cog3DSphere" /> shape.
+</summary>
+            <param name="shape">
+The shape to be used in the 3D graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DSphereGraphic">
+            <summary>
+This class defines a 3D Sphere graphic.
+It inherites from the <see cref="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase" /> base class
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DCircleGraphic.RealEqual(Cognex.VisionPro3D.Cog3DCircleGraphic,Cognex.VisionPro3D.Cog3DCircleGraphic,System.Double)">
+            <summary>
+Compares two Cog3DCircleGraphic for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DCircleGraphic to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DCircleGraphic to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DCircleGraphic.DisplayState">
+            <summary>
+Gets/sets the DisplayState for this Cog3DCircleGraphic
+The default value is Cog3DDisplayStateConstants::WireFrame.
+Available values are Surface, SurfaceWithWireFrame and WireFrame
+</summary>
+            <value>
+The DisplayState of this graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If trying to set to anything other than Surface, SurfaceWithWireFrame or WireFreame
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DCircleGraphic.Shape">
+            <summary>
+Gets the underlying Cog3DCircle object of this graphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DCircleGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DCircleGraphic object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DCircleGraphic.Finalize">
+            <summary>
+Finalize this Cog3DCircleGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DCircleGraphic.Dispose">
+            <summary>
+Destruct this Cog3DCircleGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DCircleGraphic.#ctor(Cognex.VisionPro3D.Cog3DCircleGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DCircleGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DCircleGraphic.#ctor(Cognex.VisionPro3D.Cog3DCircle)">
+            <summary>
+Constructor that takes <see cref="T:Cognex.VisionPro3D.Cog3DCircle" /> shape.
+</summary>
+            <param name="shape">
+The shape to be used in the 3D graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DCircleGraphic">
+            <summary>
+This class defines a 3D Circle graphic.
+It inherites from the <see cref="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase" /> base class
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DPointGraphic.RealEqual(Cognex.VisionPro3D.Cog3DPointGraphic,Cognex.VisionPro3D.Cog3DPointGraphic,System.Double)">
+            <summary>
+Compares two Cog3DPointGraphic for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DPointGraphic to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DPointGraphic to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DPointGraphic.DisplayState">
+            <summary>
+Gets/sets the DisplayState for the Pointment
+The default value is Cog3DDisplayStateConstants::WireFrame and it cannot be changed for this Cog3DPointmentGraphic.
+</summary>
+            <value>
+The DisplayState of this graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If trying to set to anything other than WireFrame
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DPointGraphic.Shape">
+            <summary>
+Gets the underlying Cog3DPoint object of this graphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DPointGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DPointGraphic object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DPointGraphic.Finalize">
+            <summary>
+Finalize this Cog3DPointGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DPointGraphic.Dispose">
+            <summary>
+Destruct this Cog3DPointGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DPointGraphic.#ctor(Cognex.VisionPro3D.Cog3DPointGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DPointGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DPointGraphic.#ctor(Cognex.VisionPro3D.Cog3DPoint)">
+            <summary>
+Constructor that takes <see cref="T:Cognex.VisionPro3D.Cog3DPoint" /> shape.
+</summary>
+            <param name="shape">
+The shape to be used in the 3D graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DPointGraphic">
+            <summary>
+This class defines a 3D Point graphic.
+It inherites from the <see cref="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase" /> base class
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRectangleGraphic.RealEqual(Cognex.VisionPro3D.Cog3DRectangleGraphic,Cognex.VisionPro3D.Cog3DRectangleGraphic,System.Double)">
+            <summary>
+Compares two Cog3DRectangleGraphic for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DRectangleGraphic to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DRectangleGraphic to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DRectangleGraphic.DisplayState">
+            <summary>
+Gets/sets the DisplayState for the Circle
+The default value is Cog3DDisplayStateConstants::WireFrame.
+Available values are Surface, SurfaceWithWireFrame and WireFrame
+</summary>
+            <value>
+The DisplayState of this graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If trying to set to anything other than WireFreame, SurfaceWithWireFrame or Surface
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DRectangleGraphic.Shape">
+            <summary>
+Gets the underlying Cog3DRectangle object of this graphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRectangleGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DRectangleGraphic object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRectangleGraphic.Finalize">
+            <summary>
+Finalize this Cog3DRectangleGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRectangleGraphic.Dispose">
+            <summary>
+Destruct this Cog3DRectangleGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRectangleGraphic.#ctor(Cognex.VisionPro3D.Cog3DRectangleGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DRectangleGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRectangleGraphic.#ctor(Cognex.VisionPro3D.Cog3DRectangle)">
+            <summary>
+Constructor that takes <see cref="T:Cognex.VisionPro3D.Cog3DRectangle" /> shape.
+</summary>
+            <param name="shape">
+The shape to be used in the 3D graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DRectangleGraphic">
+            <summary>
+This class defines a 3D Rectangle graphic.
+It inherites from the <see cref="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase" /> base class
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DLineSegGraphic.RealEqual(Cognex.VisionPro3D.Cog3DLineSegGraphic,Cognex.VisionPro3D.Cog3DLineSegGraphic,System.Double)">
+            <summary>
+Compares two Cog3DLineSegGraphic for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DLineSegGraphic to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DLineSegGraphic to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DLineSegGraphic.DisplayState">
+            <summary>
+Gets/sets the DisplayState for the LineSegment
+The default value is Cog3DDisplayStateConstants::WireFrame and it cannot be changed for this Cog3DLineSegmentGraphic.
+</summary>
+            <value>
+The DisplayState of this graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If trying to set to anything other than WireFrame
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DLineSegGraphic.Shape">
+            <summary>
+Gets the underlying Cog3DLineSeg object of this graphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DLineSegGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DLineSegGraphic object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DLineSegGraphic.Finalize">
+            <summary>
+Finalize this Cog3DLineSegGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DLineSegGraphic.Dispose">
+            <summary>
+Destruct this Cog3DLineSegGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DLineSegGraphic.#ctor(Cognex.VisionPro3D.Cog3DLineSegGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DLineSegGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DLineSegGraphic.#ctor(Cognex.VisionPro3D.Cog3DLineSeg)">
+            <summary>
+Constructor that takes <see cref="T:Cognex.VisionPro3D.Cog3DLineSeg" /> shape.
+</summary>
+            <param name="shape">
+The shape to be used in the 3D graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DLineSegGraphic">
+            <summary>
+This class defines a 3D LineSeg graphic.
+It inherites from the <see cref="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase" /> base class
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DBoxGraphic.RealEqual(Cognex.VisionPro3D.Cog3DBoxGraphic,Cognex.VisionPro3D.Cog3DBoxGraphic,System.Double)">
+            <summary>
+Compares two Cog3DBoxGraphic for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DBoxGraphic to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DBoxGraphic to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DBoxGraphic.Shape">
+            <summary>
+Gets the underlying Cog3DBox object of this graphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DBoxGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DBoxGraphic object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DBoxGraphic.Finalize">
+            <summary>
+Finalize this Cog3DBoxGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DBoxGraphic.Dispose">
+            <summary>
+Destruct this Cog3DBoxGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DBoxGraphic.#ctor(Cognex.VisionPro3D.Cog3DBoxGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DBoxGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DBoxGraphic.#ctor(Cognex.VisionPro3D.Cog3DBox)">
+            <summary>
+Constructor that takes <see cref="T:Cognex.VisionPro3D.Cog3DBox" /> shape.
+</summary>
+            <param name="shape">
+The shape to be used in the 3D graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DBoxGraphic">
+            <summary>
+This class defines a 3D box graphic.
+It inherites from the <see cref="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase" /> base class
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DShapeGraphicBase.SelectedSpaceName3D">
+            <summary>
+Gets or sets the name of the three dimensional
+coordinate space of the underlying shape of this graphic.
+</summary>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+Fires when this property changes.
+</event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DShapeGraphicBase.ShapeBase">
+            <summary>
+Gets the underlying Cog3DShapeBase object of this graphic.
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DShapeGraphicBase.DisplayState">
+            <summary>
+Gets/sets the DisplayState for this graphic object.
+The default value is Cog3DDisplayStateConstants::DisplayDefault.
+It can be used to force an object to be always rendered as WireFrame or Vertices regardless of what the display settings are for rendering.
+</summary>
+            <value>
+The DisplayState of this graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If setting the DisplayState to anything other than Surface, SurfaceWithWireFrame, WireFreame
+DisplayState of a Cog3DShapeGeometryGraphic cannot be set to DisplayDefault or Vertices.
+The individual derived classes may override this restriction.
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DShapeGraphicBase.RealEqual(Cognex.VisionPro3D.Cog3DShapeGraphicBase,Cognex.VisionPro3D.Cog3DShapeGraphicBase,System.Double)">
+            <summary>
+Compares two Cog3DShapeGraphicBase for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DShapeGraphicBase to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DShapeGraphicBase to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DShapeGraphicBase.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DGraphicBase object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DShapeGraphicBase.Finalize">
+            <summary>
+Finalize this Cog3DShapeGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DShapeGraphicBase.Dispose">
+            <summary>
+Destruct this Cog3DShapeGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DShapeGraphicBase.#ctor(Cognex.VisionPro3D.Cog3DShapeGraphicBase)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DShapeGraphicBase to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DShapeGraphicBase.#ctor(Cognex.VisionPro3D.Cog3DShapeBase,Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants)">
+            <summary>
+Constructor
+</summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DShapeGraphicBase">
+            <summary>
+This file defines the base class 3D ShapeGraphic Base objects
+It inherits from <see cref="T:Cognex.VisionPro3D.Cog3DGraphicBase" /> class
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.SelectedSpaceName3D">
+            <summary>
+Gets or sets the name of the three dimensional
+coordinate space to be used by tools which process this geometry graphic.
+</summary>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+Fires when this property changes.
+</event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.DisplayState">
+            <summary>
+Gets/sets the DisplayState for this geometry graphic object.
+</summary>
+            <value>
+The DisplayState of this geometry graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If a DisplayState is set to anything other than Surface, SurfaceWithWireFrame, WireFrame or Vertices
+DisplayState of a Cog3DGeometryGraphic by default cannot be set to DisplayDefault
+The individual derived classes may override this restriction
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.RealEqual(Cognex.VisionPro3D.Cog3DGeometryGraphicBase,Cognex.VisionPro3D.Cog3DGeometryGraphicBase,System.Double)">
+            <summary>
+Compares two Cog3DGeometryGraphicBase for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DGeometryGraphicBase to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DGeometryGraphicBase to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.fireGeometryChangedEvent(System.Int64)">
+            <summary>
+fire the GeometryChanged event with the approproate stateflag coming from the real geometry object
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DGeometryGraphicBase object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.Finalize">
+            <summary>
+Finalize this Cog3DGeometryGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.Dispose">
+            <summary>
+Destruct this Cog3DGeometryGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.#ctor(Cognex.VisionPro3D.Cog3DGeometryGraphicBase)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DGeometryGraphicBase instance to copy.
+</param>
+            <exception cref="T:System.ArgumentException">
+If <paramref name="other" /> is diposed.
+</exception>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGeometryGraphicBase.#ctor(Cognex.VisionPro.CogColorConstants,Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants)">
+            <summary>
+Default constructor.
+</summary>
+            <param name="color">
+The default color of the graphic object.
+</param>
+            <param name="displayState">
+The default display state of the graphic object.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DGeometryGraphicBase">
+            <summary>
+This abstarct base class is used to specify common properties of 3D geometry related graphic objects. 
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DRangeImageGraphic.ShowGreyImage">
+            <summary>
+Gets/sets whether the grey data should be shown during rendering for coloring the object
+The default value is true. NOTE: only has an effect when the GreyImage is available
+</summary>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item> SfShowGreyImage</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DRangeImageGraphic.RangeWithGrey">
+            <summary>
+Returns whether the grey data is available with the RangeImage constructor.
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DRangeImageGraphic.GreyImage">
+            <summary>
+Gets the grey-scale pair of the range image (if available)
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DRangeImageGraphic.RangeImage">
+            <summary>
+Gets the RangeImage object of the Cog3DGraphicImage16Range object
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRangeImageGraphic.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DGraphicImage16Range object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRangeImageGraphic.Finalize">
+            <summary>
+Finalize this Cog3DRangeImageGraphic.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRangeImageGraphic.Dispose">
+            <summary>
+Destruct this Cog3DGraphicImage16Range.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRangeImageGraphic.#ctor(Cognex.VisionPro3D.Cog3DRangeImageGraphic)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DRangeImageGraphic to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRangeImageGraphic.#ctor(Cognex.VisionPro.CogImage16Range,Cognex.VisionPro.CogImage16Grey)">
+            <summary>
+Constructor that takes a CogImage16Range and a CogImage16Grey pair
+</summary>
+            <param name="rangeImage">
+The CogImage16Range to be used as 3D Graphic. It cannot be null.
+</param>
+            <param name="greyImage">
+The CogImage16Grey pair of the RangeImage. It cannot be null and 
+has to have the same dimensions (width, height) as the RangeImage
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DRangeImageGraphic.#ctor(Cognex.VisionPro.CogImage16Range)">
+            <summary>
+Constructor that takes a CogImage16Range. This RangeImage will be handled as one that does not have grey data in it.
+</summary>
+            <param name="rangeImage">
+The Cog3DRangeImageGraphic to be used as 3D Graphic.
+</param>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DRangeImageGraphic">
+            <summary>
+This class defines a RangeImage 3D graphic.
+It inherits from <see cref="T:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase" /> class
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.fireCoordinateSpaceTree3DEvent">
+            <summary>
+Common flags corresponding with properties of a 3D graphic changed
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DGraphicBase object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.VisionData">
+            <summary>
+Gets the underlying ICogVisionData of the VisionDataGraphic object
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.CoordinateSpaceTree3D">
+            <summary>
+Gets the 3D Coordinate Space Tree of the VisionDataGraphic object
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.Finalize">
+            <summary>
+Finalize this Cog3DVisionDataGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.Dispose">
+            <summary>
+Destruct this Cog3DVisionDataGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.#ctor(Cognex.VisionPro3D.Cog3DVisionDataGraphicBase)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DVisionDataGraphicBase to copy.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.#ctor(Cognex.VisionPro.ICogVisionData)">
+            <summary>
+Constructor
+</summary>
+        </member>
+        <member name="E:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase.CoordinateSpaceTree3DChanged">
+            <summary>
+Event if fired when the 3D coordinate space tree of the VisionData has changed, 
+or a change happened within the tree itself
+</summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DVisionDataGraphicBase">
+            <summary>
+This file defines the base class 3D VisionDataGraphic objects
+It inherits from <see cref="T:Cognex.VisionPro3D.Cog3DGraphicBase" /> class
+</summary>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGraphicBase.DisplayState">
+            <summary>
+Gets/sets the DisplayState for this graphic object.
+It can be used to force an object to be always rendered as WireFrame or Vertices regardless of what the display settings are for rendering.
+</summary>
+            <value>
+The DisplayState of this graphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+If a DisplayState other than DisplayDefault, Surface, SurfaceWithWireFrame, WireFreame or Vertices
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfDisplayState</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGraphicBase.MarkerSize">
+            <summary>
+Gets/sets the MarkerSize for this graphic object in screen units.
+Applies only if rendered as vertices
+The default value is 1.0.
+</summary>
+            <value>
+The MarkerSize of this graphic object in screen units.
+</value>
+            <exception cref="T:System.ArgumentException">
+The MarkerSize for graphic objects must be greaer than 0.
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item>SfMarkerSize</item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGraphicBase.LineWidth">
+            <summary>
+Gets/sets the LineWidth for this graphic object in screen units.
+Applies only if rendered as WireFrame or SurfaceWithWireFrame.
+The default value is 1.
+</summary>
+            <value>
+The LineWidth of this graphic object in screen units.
+</value>
+            <exception cref="T:System.ArgumentException">
+The LineWidth for graphic objects must be greater or equal 1.
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item> SfLineWidth </item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGraphicBase.Visible">
+            <summary>
+Gets/sets the Visibility for this graphic object.
+The default value is true.
+</summary>
+            <value>
+The Visibility of this graphic object.
+</value>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item> SfVisible </item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGraphicBase.Opacity">
+            <summary>
+Gets/sets the Opacity for this graphic object.
+The value range is 0.0 - 1.0, where 0.0 means full transparent
+and value 1.0 means full opaque.
+The default value is 1.0.
+</summary>
+            <value>
+The Opacity of this graphic object. Must be between 0 and 1.
+</value>
+            <exception cref="T:System.ArgumentException">
+The Opacity for graphic objects must be between 0 and 1.
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item> SfOpacity </item>
+                </list>
+            </event>
+        </member>
+        <member name="P:Cognex.VisionPro3D.Cog3DGraphicBase.Color">
+            <summary>
+Gets/sets the Color for this graphic object.
+</summary>
+            <value>
+The Color of this craphic object.
+</value>
+            <exception cref="T:System.ArgumentException">
+Color cannot be set to CogColorConstants::None
+</exception>
+            <event cref="E:Cognex.VisionPro.ICogChangedEvent.Changed">
+                <para>Fires when this property changes.</para>
+                <para>The following state flags may be affected:</para>
+                <list type="bullet">
+                    <item> SfColor </item>
+                </list>
+            </event>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicBase.RealEqual(Cognex.VisionPro3D.Cog3DGraphicBase,Cognex.VisionPro3D.Cog3DGraphicBase,System.Double)">
+            <summary>
+Compares two Cog3DGraphicBase for equality.
+</summary>
+            <param name="a">
+First instance of a Cog3DGraphicBase to compare to the other.
+</param>
+            <param name="a">
+Second instance of a Cog3DGraphicBase to compare to the other.
+</param>
+            <param name="epsilon">
+Tolerance when comparing number values for equality.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicBase.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+Serialization constructor for Cog3DGraphicBase object.
+</summary>
+            <param name="info">
+The standard SerializationInfo argument.
+</param>
+            <param name="ctxt">
+The standard StreamingContext argument.
+</param>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicBase.Finalize">
+            <summary>
+Finalize this Cog3DGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicBase.Dispose">
+            <summary>
+Destruct this Cog3DGraphicBase.
+</summary>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicBase.#ctor(Cognex.VisionPro3D.Cog3DGraphicBase)">
+            <summary>
+Copy constructor.
+</summary>
+            <param name="other">
+The Cog3DGraphicBase instance to copy.
+</param>
+            <exception cref="T:System.ArgumentNullException">
+If <paramref name="other" /> is null.
+</exception>
+            <exception cref="T:System.ArgumentException">
+If <paramref name="other" /> is diposed.
+</exception>
+        </member>
+        <member name="M:Cognex.VisionPro3D.Cog3DGraphicBase.#ctor(Cognex.VisionPro.CogColorConstants,Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants)">
+            <summary>
+Default constructor.
+</summary>
+            <param name="color">
+The default color of the graphic object.
+</param>
+            <param name="displayState">
+The default display state of the graphic object.
+</param>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicBase.SfDisplayState">
+            <summary>
+This bit will be set in the EventArgs of a Changed event every time
+the value returned by DisplayState may have changed.
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicBase.SfMarkerSize">
+            <summary>
+This bit will be set in the EventArgs of a Changed event every time
+the value returned by MarkerSize may have changed.
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicBase.SfLineWidth">
+            <summary>
+This bit will be set in the EventArgs of a Changed event every time
+the value returned by LineWidth may have changed.
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicBase.SfVisible">
+            <summary>
+This bit will be set in the EventArgs of a Changed event every time
+the value returned by Visible may have changed.
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicBase.SfOpacity">
+            <summary>
+This bit will be set in the EventArgs of a Changed event every time
+the value returned by Opacity may have changed.
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicBase.SfColor">
+            <summary>
+This bit will be set in the EventArgs of a Changed event every time
+the value returned by Color may have changed.
+</summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DGraphicBase">
+            <summary>
+This file defines the base class for 3D graphics objects
+</summary>
+        </member>
+        <member name="T:Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants">
+            <summary>
+This enum defines the available display states for 3D graphics.  
+The graphic's display state defines the way of rendering of a 3D graphics.
+</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants.Vertices">
+            <summary>The graphic's vertices will always be rendered</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants.WireFrame">
+            <summary>The graphic's wireframe will always be rendered</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants.SurfaceWithWireFrame">
+            <summary>The graphic's surface and wireframe will always be rendered</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants.Surface">
+            <summary>The graphic's surface will always be rendered</summary>
+        </member>
+        <member name="F:Cognex.VisionPro3D.Cog3DGraphicDisplayStateConstants.DisplayDefault">
+            <summary>The graphic will follow the rendering mode of the display. Available for ICogVisionDataGraphic only</summary>
+        </member>
+    </members>
+</doc>
